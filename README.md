@@ -17,7 +17,7 @@ To start the setup, run the `Arlo-Usb-Start.sh` script with the appropriate powe
 
 ```sh
 ./Arlo-Usb-Start.sh <max_power>
-
+```
 Where <max_power> is:
 
 500 for Raspberry Pi 4
