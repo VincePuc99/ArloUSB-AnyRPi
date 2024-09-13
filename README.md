@@ -28,6 +28,7 @@ After running `Arlo-Usb-Start.sh`, the Raspberry Pi will reboot. Upon reboot, ch
 - `cleanup_clips.sh`: Script to clean up old clips from the storage.
 - `enable_mass_storage.sh`: Script to enable USB mass storage.
 - `sync_clips.sh`: Script to synchronize clips from the USB storage to a shared directory.
+- `telegram-sync.sh`: (Optional can be deleted) File service to synchronize clips from the USB storage to a Telegram Bot.
 
 ## Usage
 
