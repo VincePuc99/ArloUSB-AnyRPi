@@ -137,5 +137,5 @@ sudo systemctl start telegram-video-sync
 sudo systemctl status telegram-video-sync
 ```
 
-### License
+# License
 This project is licensed under the MIT License.
