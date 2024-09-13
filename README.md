@@ -14,8 +14,6 @@ For RPi Zero/Zero2W:
 For others RPi's:
 - Connect the USB cable to any USB port of the RPi, you will need an external power source.
 
-Run `sudo chmod +x ./enable_mass_storage.sh`
-
 
 After running `Arlo-Usb-Start.sh`, the Raspberry Pi will reboot. Upon reboot, check the connection to the base in Arlo Secure App.
 
@@ -39,6 +37,10 @@ git clone git@github.com:VincePuc99/ArloUSB-AnyRPi.git
 ### Starting the Setup
 
 To start the setup, run the `Arlo-Usb-Start.sh` script with the appropriate power setting for your Raspberry Pi model:
+
+```Run
+sudo chmod +x ./Arlo-Usb-Start.sh
+```
 
 ```sh
 ./Arlo-Usb-Start.sh <max_power>
