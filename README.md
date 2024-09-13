@@ -2,7 +2,7 @@
 
 This project provides scripts to set up and manage an Arlo USB storage system on a Raspberry Pi. The scripts handle tasks such as enabling mass storage (30GB), synchronizing clips, and cleaning up old clips.
 
-All clips are stored in `/share/arlo`. You need to access this folder to expose them on your preferred service.
+All clips are stored in `/mnt/ArloExposed`. You need to access this folder to expose them on your preferred service.
 
 
 
