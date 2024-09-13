@@ -9,7 +9,7 @@ All clips are stored in `/mnt/ArloExposed`. You need to access this folder to ex
 Two folders will be created in /mnt - arlo and ArloExposed. To avoid data corruption, DO NOT TOUCH the arlo one.<br />
 Tested on RPi-4B 8GB and RPi-Zero2W both on [DietPi](https://dietpi.com/) Bookworm.
 
-## What you need
+### What you need
 
 For RPi Zero/Zero2W:
 - Connect the USB cable to the middle port from the RPi (Without the PWR label) to the USB of the station, Arlo base station itself is enough to power the Raspbery Pi.
@@ -59,34 +59,7 @@ Example for Raspberry Pi 4:
 
 After running `Arlo-Usb-Start.sh`, the Raspberry Pi will reboot. Upon reboot, check the connection to the base in Arlo Secure App.
 
-### Documentation
-
-
-- `Arlo-Usb-Start.sh` - This script installs necessary dependencies and runs the other scripts in the correct order. It ensures that the system is properly set up for USB mass storage and clip management. | Main script to start the setup process.
-
-- `cleanup_clips.sh` - Cleans up old clips from the storage directory. By default, it removes clips older than 14 days.
-
-- `enable_mass_storage.s` - Enables USB mass storage with the specified maximum power.
-
-- `sync_clips.sh` - Synchronizes clips from the USB storage to a shared directory. Ensures that the mount point is properly managed to avoid data corruption.
-
-- `telegram-sync.sh`: (Optional can be deleted) File service to synchronize clips from the USB storage to a Telegram Bot.
-
-### Dependencies
-The scripts require the following packages:
-
-- `bash`
-- `findutils`
-- `util-linux`
-- `rsync`
-- `grep`
-- `coreutils`
-- `procps`
-- `kmod`
-
-The Arlo-Usb-Start.sh script will automatically install these dependencies if they are not already installed.
-
-## Optional - Sync with Telegram Bot (python3)
+### Optional - Sync with Telegram Bot (python3)
 
 This script monitors `/mnt/ArloExposed/arlo/000000` for new video files and sends them to a Telegram bot. It uses the bot's API token and the chat ID to send the videos.
 
@@ -134,5 +107,33 @@ sudo systemctl start telegram-video-sync
 sudo systemctl status telegram-video-sync
 ```
 
-# License
+## Documentation
+
+
+- `Arlo-Usb-Start.sh` - This script installs necessary dependencies and runs the other scripts in the correct order. It ensures that the system is properly set up for USB mass storage and clip management. | Main script to start the setup process.
+
+- `cleanup_clips.sh` - Cleans up old clips from the storage directory. By default, it removes clips older than 14 days.
+
+- `enable_mass_storage.s` - Enables USB mass storage with the specified maximum power.
+
+- `sync_clips.sh` - Synchronizes clips from the USB storage to a shared directory. Ensures that the mount point is properly managed to avoid data corruption.
+
+- `telegram-sync.sh`: (Optional can be deleted) File service to synchronize clips from the USB storage to a Telegram Bot.
+
+### Dependencies
+The scripts require the following packages:
+
+- `bash`
+- `findutils`
+- `util-linux`
+- `rsync`
+- `grep`
+- `coreutils`
+- `procps`
+- `kmod`
+
+The Arlo-Usb-Start.sh script will automatically install these dependencies if they are not already installed.
+
+
+## License
 This project is licensed under the MIT License.
