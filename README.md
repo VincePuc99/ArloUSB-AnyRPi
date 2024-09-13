@@ -20,16 +20,6 @@ For others RPi's:
 - Connect the USB cable to any USB port of the RPi, you will need an external power source.
 
 
-After running `Arlo-Usb-Start.sh`, the Raspberry Pi will reboot. Upon reboot, check the connection to the base in Arlo Secure App.
-
-## Files
-
-- `Arlo-Usb-Start.sh`: Main script to start the setup process.
-- `cleanup_clips.sh`: Script to clean up old clips from the storage.
-- `enable_mass_storage.sh`: Script to enable USB mass storage.
-- `sync_clips.sh`: Script to synchronize clips from the USB storage to a shared directory.
-- `telegram-sync.sh`: (Optional can be deleted) File service to synchronize clips from the USB storage to a Telegram Bot.
-
 ## Usage
 
 
@@ -67,14 +57,20 @@ Example for Raspberry Pi 4:
 ./Arlo-Usb-Start.sh 500
 ```
 
-### Scripts
-- `Arlo-Usb-Start.sh` - This script installs necessary dependencies and runs the other scripts in the correct order. It ensures that the system is properly set up for USB mass storage and clip management.
+After running `Arlo-Usb-Start.sh`, the Raspberry Pi will reboot. Upon reboot, check the connection to the base in Arlo Secure App.
+
+### Scripts & Files
+
+
+- `Arlo-Usb-Start.sh` - This script installs necessary dependencies and runs the other scripts in the correct order. It ensures that the system is properly set up for USB mass storage and clip management. | Main script to start the setup process.
 
 - `cleanup_clips.sh` - Cleans up old clips from the storage directory. By default, it removes clips older than 14 days.
 
 - `enable_mass_storage.s` - Enables USB mass storage with the specified maximum power.
 
 - `sync_clips.sh` - Synchronizes clips from the USB storage to a shared directory. Ensures that the mount point is properly managed to avoid data corruption.
+
+- `telegram-sync.sh`: (Optional can be deleted) File service to synchronize clips from the USB storage to a Telegram Bot.
 
 ### Dependencies
 The scripts require the following packages:
