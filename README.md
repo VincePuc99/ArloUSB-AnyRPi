@@ -89,5 +89,53 @@ The scripts require the following packages:
 
 The Arlo-Usb-Start.sh script will automatically install these dependencies if they are not already installed.
 
+# Optional - Sync with Telegram-Bot (python3)
+
+This script monitors `/mnt/ArloExposed/arlo/000000` for new video files and sends them to a Telegram bot. It uses the bot's API token and the chat ID to send the videos.
+
+### Prerequisites
+
+- Python 3.x
+- A Telegram bot with the API token (created via BotFather)
+- The chat ID of the Telegram chat where the videos will be sent
+
+Assuming you already cloned the full repository with:
+```sh
+git clone git@github.com:VincePuc99/ArloUSB-AnyRPi.git
+```
+and set all permissions with:
+```sh
+chmod +x *
+```
+Create a new Service:
+```sh
+sudo nano /etc/systemd/system/telegram-video-sync.service
+```
+Configure it (Replace all needed fields with your config)
+```
+[Unit]
+Description=Telegram Video Sync Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /path/to/your/script/ArloUSB-AnyRPi/telegram-sync.py <Bot-ApiToken> <ChatId>
+WorkingDirectory=/path/to/your/script/ArloUSB-AnyRPi
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=your-username
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
+```
+Now run the Service and test it!
+```
+sudo systemctl daemon-reload
+sudo systemctl enable telegram-video-sync
+sudo systemctl start telegram-video-sync
+sudo systemctl status telegram-video-sync
+```
+
 ### License
 This project is licensed under the MIT License.
