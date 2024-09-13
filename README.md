@@ -55,5 +55,5 @@ The scripts require the following packages:
 
 The Arlo-Usb-Start.sh script will automatically install these dependencies if they are not already installed.
 
-License
+### License
 This project is licensed under the MIT License.
