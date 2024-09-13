@@ -11,7 +11,7 @@ Two folders will be created in /mnt - arlo and ArloExposed. To avoid data corrup
 ## What you need
 
 For RPi Zero/Zero2W:
-- Connect the USB cable to the middle port of the RPi (Without the PWR label) to the USB of the station, Arlo base station itself is enough to power the Raspbery Pi.
+- Connect the USB cable to the middle port from the RPi (Without the PWR label) to the USB of the station, Arlo base station itself is enough to power the Raspbery Pi.
 
 
 
