@@ -1,6 +1,17 @@
 #!/bin/bash
 
-#maxpower  #500 for pi4, 200 for piz2, 100 for piz
+################################################################# Logfile
+
+LOG_FILE="./arlo_usb_start.log"
+
+if [ ! -f "$LOG_FILE" ]; then
+    touch "$LOG_FILE"
+fi
+
+echo "LogFile SUCCESS - 1/6" >> "$LOG_FILE"
+
+################################################################# MaxPower
+
 if [ -z "$1" ]; then
     echo "Usage: $0 <max_power>"
     exit 1
@@ -8,15 +19,16 @@ fi
 
 MAX_POWER=$1
 
-# Funzione per verificare se un pacchetto è installato
+echo "MAX_POWER SUCCESS - 2/6" >> "$LOG_FILE"
+
+################################################################# Dependencies
+
 is_installed() {
     dpkg -l "$1" &> /dev/null
 }
 
-# Lista delle dipendenze necessarie
 dependencies=(bash findutils util-linux rsync grep coreutils procps kmod)
 
-# Verifica e installa le dipendenze mancanti
 for package in "${dependencies[@]}"; do
     if ! is_installed "$package"; then
         echo "Installing missing dependency: $package"
@@ -25,16 +37,16 @@ for package in "${dependencies[@]}"; do
     fi
 done
 
-echo "Enabling DWC2"
+echo "Dependencies SUCCESS - 3/6">> "$LOG_FILE"
+
+################################################################# DWC2
 
 echo "dwc2" >> /etc/modules
 echo "dtoverlay=dwc2" >> /boot/config.txt
 
-echo "DWC2 Added to modules and config.txt"
+echo "DWC2 SUCCESS - 4/6" >> "$LOG_FILE"
 
-#################################################################
-
-echo "Creating Storage"
+################################################################# Storage
 
 ARLO_IMG_FILE=/arlo.bin
 ARLO_IMG_SIZE=31457280
@@ -71,11 +83,9 @@ function add_drive () {
 }
 add_drive "arlo" "ARLO" "$ARLO_IMG_SIZE" "$ARLO_IMG_FILE" 
 
-echo "Storage Created"
+echo "Storage IMG SUCCESS - 5/6" >> "$LOG_FILE"
 
-#################################################################
-
-echo "Setting up Cronjob"
+################################################################# Cronjob
 
 init_mass_storage="@reboot sudo sh $(pwd)/cronsetup/enable_mass_storage.sh $MAX_POWER"
 sync_clip_interval="*/1 * * * * sudo /bin/bash $(pwd)/cronsetup/sync_clips.sh"
@@ -85,9 +95,8 @@ cleanup_clips_interval="0 0 * * * sudo /bin/bash $(pwd)/cronsetup/cleanup_clips.
 ( crontab -l | cat;  echo "$cleanup_clips_interval" ) | crontab -
 crontab -l
 
-echo "Cronjob setup"
+echo "Cronjob SUCCESS - 6/6" >> "$LOG_FILE"
 
 #################################################################
 
-echo "Restarting system"
 sudo reboot now
