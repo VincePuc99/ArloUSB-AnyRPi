@@ -5,6 +5,9 @@ This project provides scripts to set up and manage an Arlo USB storage system on
 All clips are stored in `/mnt/ArloExposed`. You need to access this folder to expose them on your preferred service.
 
 
+#### ⚠️ WARNING ⚠️
+Two folders will be created in /mnt - arlo and ArloExposed. To avoid data corruption, DO NOT TOUCH the arlo one.
+
 
 For RPi Zero/Zero2W:
 - Connect the USB cable to the middle port of the RPi (Without the PWR label) to the USB of the station, Arlo base station itself is enough to power the Raspbery Pi.
