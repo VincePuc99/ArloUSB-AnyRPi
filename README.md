@@ -39,7 +39,16 @@ git clone git@github.com:VincePuc99/ArloUSB-AnyRPi.git
 To start the setup, run the `Arlo-Usb-Start.sh` script with the appropriate power setting for your Raspberry Pi model:
 
 ```Run
-sudo chmod +x ./Arlo-Usb-Start.sh
+sudo chmod +x Arlo-Usb-Start.sh
+```
+```
+sudo chmod +x enable_mass_storage.sh
+```
+```
+sudo chmod +x cleanup_clips.sh
+```
+```
+sudo chmod +x sync_clips.sh
 ```
 
 ```sh
