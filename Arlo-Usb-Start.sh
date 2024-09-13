@@ -87,9 +87,9 @@ echo "Storage IMG SUCCESS - 5/6" >> "$LOG_FILE"
 
 ################################################################# Cronjob
 
-init_mass_storage="@reboot sudo sh $(pwd)/cronsetup/enable_mass_storage.sh $MAX_POWER"
-sync_clip_interval="*/1 * * * * sudo /bin/bash $(pwd)/cronsetup/sync_clips.sh"
-cleanup_clips_interval="0 0 * * * sudo /bin/bash $(pwd)/cronsetup/cleanup_clips.sh"
+init_mass_storage="@reboot sudo sh $(pwd)/enable_mass_storage.sh $MAX_POWER"
+sync_clip_interval="*/1 * * * * sudo /bin/bash $(pwd)/sync_clips.sh"
+cleanup_clips_interval="0 0 * * * sudo /bin/bash $(pwd)/cleanup_clips.sh"
 ( crontab -l | cat;  echo "$init_mass_storage" ) | crontab -
 ( crontab -l | cat;  echo "$sync_clip_interval" ) | crontab -
 ( crontab -l | cat;  echo "$cleanup_clips_interval" ) | crontab -
