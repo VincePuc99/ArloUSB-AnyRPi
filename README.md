@@ -30,18 +30,18 @@ Example for Raspberry Pi 4:
 ```
 
 ### Scripts
-`Arlo-Usb-Start.sh`
+- `Arlo-Usb-Start.sh`
 This script installs necessary dependencies and runs the other scripts in the correct order.
 It ensures that the system is properly set up for USB mass storage and clip management.
 
-`cleanup_clips.sh`
+- `cleanup_clips.sh`
 Cleans up old clips from the storage directory.
 By default, it removes clips older than 14 days.
 
-`enable_mass_storage.s`
+- `enable_mass_storage.s`
 Enables USB mass storage with the specified maximum power.
 
-`sync_clips.sh`
+- `sync_clips.sh`
 Synchronizes clips from the USB storage to a shared directory.
 Ensures that the mount point is properly managed to avoid data corruption.
 
