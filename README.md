@@ -14,6 +14,14 @@ All clips are stored in `/share/arlo`. You need to access this folder to expose 
 
 ## Usage
 
+
+### Cloning the Repository
+To clone this repository, use the following command:
+
+```sh
+git clone git@github.com:VincePuc99/ArloUSB-AnyRPi.git
+```
+
 ### Starting the Setup
 
 To start the setup, run the `Arlo-Usb-Start.sh` script with the appropriate power setting for your Raspberry Pi model:
