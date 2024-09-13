@@ -6,7 +6,7 @@ All clips are stored in `/mnt/ArloExposed`. You need to access this folder to ex
 
 
 #### ⚠️ WARNING ⚠️
-Two folders will be created in /mnt - arlo and ArloExposed. To avoid data corruption, DO NOT TOUCH the arlo one.\\
+Two folders will be created in /mnt - arlo and ArloExposed. To avoid data corruption, DO NOT TOUCH the arlo one.//
 Tested on RPi-4B 8GB and RPi-Zero2W both on [DietPi](https://dietpi.com/) Bookworm.
 
 ## What you need
