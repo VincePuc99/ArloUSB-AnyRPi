@@ -89,7 +89,7 @@ The scripts require the following packages:
 
 The Arlo-Usb-Start.sh script will automatically install these dependencies if they are not already installed.
 
-# Optional - Sync with Telegram-Bot (python3)
+## Optional - Sync with Telegram Bot (python3)
 
 This script monitors `/mnt/ArloExposed/arlo/000000` for new video files and sends them to a Telegram bot. It uses the bot's API token and the chat ID to send the videos.
 
