@@ -20,31 +20,32 @@ To start the setup, run the `Arlo-Usb-Start.sh` script with the appropriate powe
 ```
 Where <max_power> is:
 
-500 for Raspberry Pi 4
-200 for Raspberry Pi Zero 2
-100 for Raspberry Pi Zero
+- `500` for Raspberry Pi 4
+- `200` for Raspberry Pi Zero 2
+- `100` for Raspberry Pi Zero
+
 Example for Raspberry Pi 4:
+```
+./Arlo-Usb-Start.sh 500
+```
 
-Scripts
-Arlo-Usb-Start.sh:
-
+### Scripts
+`Arlo-Usb-Start.sh`
 This script installs necessary dependencies and runs the other scripts in the correct order.
 It ensures that the system is properly set up for USB mass storage and clip management.
-cleanup_clips.sh:
 
+`cleanup_clips.sh`
 Cleans up old clips from the storage directory.
 By default, it removes clips older than 14 days.
-Usage: ./cleanup_clips.sh
-enable_mass_storage.sh:
 
+`enable_mass_storage.s`
 Enables USB mass storage with the specified maximum power.
-Usage: ./enable_mass_storage.sh <max_power>
-sync_clips.sh:
 
+`sync_clips.sh`
 Synchronizes clips from the USB storage to a shared directory.
 Ensures that the mount point is properly managed to avoid data corruption.
-Usage: ./sync_clips.sh
-Dependencies
+
+### Dependencies
 The scripts require the following packages:
 
 bash
@@ -55,8 +56,8 @@ grep
 coreutils
 procps
 kmod
+
 The Arlo-Usb-Start.sh script will automatically install these dependencies if they are not already installed.
 
 License
 This project is licensed under the MIT License.
-
