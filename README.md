@@ -1,4 +1,4 @@
-# Arlo USB Setup
+# Arlo USB-RPi Setup
 
 This project provides scripts to set up and manage an Arlo USB storage system on a Raspberry Pi.<br />The scripts handle tasks such as enabling mass storage (30GB), synchronizing clips, and cleaning up old clips.
 
