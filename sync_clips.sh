@@ -30,6 +30,10 @@ umount /mnt/arlo || true
 partition_offset=$(first_partition_offset "$ARLO_IMG_FILE")
 loopdev=$(losetup -o "$partition_offset" -f --show "$ARLO_IMG_FILE")
 mount "$loopdev" /mnt/arlo
-rsync -avu --delete "/mnt/arlo/" "/share/arlo"
+
+# Create the directory if it doesn't exist
+mkdir -p /mnt/ArloExposed
+
+rsync -avu --delete "/mnt/arlo/" "/mnt/ArloExposed"
 umount /mnt/arlo || true
 losetup -d "$loopdev"
