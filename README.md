@@ -2,9 +2,19 @@
 
 This project provides scripts to set up and manage an Arlo USB storage system on a Raspberry Pi. The scripts handle tasks such as enabling mass storage, synchronizing clips, and cleaning up old clips.
 
-
 All clips are stored in `/share/arlo`. You need to access this folder to expose them on your preferred service.
 
+
+
+For RPi Zero/Zero2W:
+- Connect the USB cable to the middle port of the RPi (Without the PWR label) to the USB of the station, Arlo base station itself is enough to power the Raspbery Pi.
+
+
+
+For others RPi's:
+- Connect the USB cable to any USB port of the RPi, you will need an external power source.
+
+  
 After running `Arlo-Usb-Start.sh`, the Raspberry Pi will reboot. Upon reboot, check the connection to the base in Arlo Secure App.
 
 ## Files
