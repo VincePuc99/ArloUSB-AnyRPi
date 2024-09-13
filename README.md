@@ -5,6 +5,8 @@ This project provides scripts to set up and manage an Arlo USB storage system on
 
 All clips are stored in `/share/arlo`. You need to access this folder to expose them on your preferred service.
 
+After running `Arlo-Usb-Start.sh`, the Raspberry Pi will reboot. Upon reboot, check the connection to the base in Arlo Secure App.
+
 ## Files
 
 - `Arlo-Usb-Start.sh`: Main script to start the setup process.
