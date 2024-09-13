@@ -30,9 +30,7 @@ Example for Raspberry Pi 4:
 ```
 
 ### Scripts
-- `Arlo-Usb-Start.sh`
-This script installs necessary dependencies and runs the other scripts in the correct order.
-It ensures that the system is properly set up for USB mass storage and clip management.
+- `Arlo-Usb-Start.sh` - This script installs necessary dependencies and runs the other scripts in the correct order. It ensures that the system is properly set up for USB mass storage and clip management.
 
 - `cleanup_clips.sh`
 Cleans up old clips from the storage directory.
