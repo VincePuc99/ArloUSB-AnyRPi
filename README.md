@@ -20,7 +20,7 @@ For others RPi's:
 - Connect the USB cable to any USB port of the RPi, you will need an external power source.
 
 
-## Usage
+## Installation
 
 
 ### Cloning the Repository
@@ -59,7 +59,7 @@ Example for Raspberry Pi 4:
 
 After running `Arlo-Usb-Start.sh`, the Raspberry Pi will reboot. Upon reboot, check the connection to the base in Arlo Secure App.
 
-### Scripts & Files
+### Documentation
 
 
 - `Arlo-Usb-Start.sh` - This script installs necessary dependencies and runs the other scripts in the correct order. It ensures that the system is properly set up for USB mass storage and clip management. | Main script to start the setup process.
