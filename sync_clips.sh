@@ -37,3 +37,4 @@ mkdir -p /mnt/ArloExposed
 rsync -avu --delete "/mnt/arlo/" "/mnt/ArloExposed"
 umount /mnt/arlo || true
 losetup -d "$loopdev"
+
