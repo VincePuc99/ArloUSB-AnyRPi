@@ -39,10 +39,6 @@ cd /ArloUSB-AnyRPi
 sudo chmod +x *
 ```
 
-### Starting the Setup
-
-To start the setup, run the `Arlo-Usb-Start.sh` script with the appropriate args for your Raspberry Pi model.
-
 #### Optional - Sync with Telegram Bot (python3)
 
 This Python script monitors `/mnt/ArloExposed/arlo/000000` for new video files and sends them to your Telegram bot. It uses the bot's API token and the chat ID to send the videos.
