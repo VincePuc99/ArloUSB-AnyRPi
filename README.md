@@ -7,7 +7,7 @@ All clips are stored in `/mnt/ArloExposed`. You need to access this folder to ex
 
 #### ⚠️ WARNING ⚠️
 Two folders will be created in `/mnt` - `/arlo` and `/ArloExposed`. To avoid data corruption, DO NOT TOUCH the `/arlo` one.<br />
-If using `Sync with Telegram Bot` double check your `[api_token] [chat_id]`. The program will not check them for you!
+If using `Sync with Telegram Bot` double check your `[api_token] [chat_id]`. The program will not check them for you!<br />
 Tested on [RPi-4B 8GB](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) and [RPi-Zero2W](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) both on [DietPi](https://dietpi.com/) Bookworm.<br />
 
 ## What you need
