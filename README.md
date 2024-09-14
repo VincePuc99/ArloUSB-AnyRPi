@@ -46,6 +46,7 @@ This Python script monitors `/mnt/ArloExposed/arlo/000000` for new video files a
 
 #### Prerequisites for Telegram Sync
 
+- Python3
 - A Telegram bot with the API token (created via BotFather)
 - The chat ID of the Telegram chat where the videos will be sent.
 
@@ -97,7 +98,7 @@ The scripts require the following packages:
 - `kmod`
 - `python3` (Only For Telegram Sync)
 
-The Arlo-Usb-Start.sh script will automatically install these dependencies if they are not already installed.
+The Arlo-Usb-Start.sh script will automatically install these dependencies if they are not already installed. You still need to install python3.
 
 ## License
 This project is licensed under the MIT License.
