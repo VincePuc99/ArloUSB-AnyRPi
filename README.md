@@ -6,7 +6,7 @@ All clips are stored in `/mnt/ArloExposed`. You need to access this folder to ex
 
 
 #### ⚠️ WARNING ⚠️
-Two folders will be created in `/mnt` - `/arlo` and `/ArloExposed`. To avoid data corruption, DO NOT TOUCH the arlo one.<br />
+Two folders will be created in `/mnt` - `/arlo` and `/ArloExposed`. To avoid data corruption, DO NOT TOUCH the `arlo` one.<br />
 Tested on RPi-4B 8GB and RPi-Zero2W both on [DietPi](https://dietpi.com/) Bookworm.
 
 ### What you need
@@ -74,7 +74,7 @@ Example for Raspberry Pi 4 without Telegram Sync:
 ```
 
 After running `Arlo-Usb-Start.sh`, the Raspberry Pi will reboot. Upon reboot, check the connection to the base in Arlo Secure App.
-If you choosed `TelNo`, the telegram-sync.py will be automatically deleted.
+If you chose `TelNo`, the `telegram-sync.py` file will be automatically deleted.
 
 ## Documentation
 
@@ -86,7 +86,7 @@ If you choosed `TelNo`, the telegram-sync.py will be automatically deleted.
 
 - `sync_clips.sh` - Synchronizes clips from the USB storage to a shared directory. Ensures that the mount point is properly managed to avoid data corruption.
 
-- `telegram-sync.py`: (Optional) File service to synchronize clips from the USB storage to a Telegram Bot.
+- `telegram-sync.py`: (Optional) File service for synchronizing clips from the USB storage to a Telegram Bot.
 
 ### Dependencies
 The scripts require the following packages:
