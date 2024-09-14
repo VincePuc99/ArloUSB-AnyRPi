@@ -19,7 +19,7 @@ TELEGRAM_API_URL = f'https://api.telegram.org/bot{API_TOKEN}/sendVideo'
 ########################################################### Folder to watch
 
 WATCHED_FOLDER = '/mnt/ArloExposed/arlo/000000'
-CHECK_INTERVAL = 30  #second refresh
+CHECK_INTERVAL = 30  #seconds refresh
 LOG_FILE = 'sent_videos.log'
 
 ########################################################### Main Sender
