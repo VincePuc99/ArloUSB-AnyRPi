@@ -83,11 +83,7 @@ is_installed() {
     dpkg -l "$1" &> /dev/null
 }
 
-if [ "$TEL_OPTION" == "TelYes" ]; then
-    dependencies=(bash findutils util-linux rsync grep coreutils procps kmod python3)
-else
-    dependencies=(bash findutils util-linux rsync grep coreutils procps kmod)
-fi
+dependencies=(bash findutils util-linux rsync grep coreutils procps kmod)
 
 for package in "${dependencies[@]}"; do
     if ! is_installed "$package"; then
