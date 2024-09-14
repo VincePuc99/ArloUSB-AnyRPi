@@ -33,7 +33,7 @@ git clone https://github.com/VincePuc99/ArloUSB-AnyRPi.git
 ### Permissions
 
 ```sh
-cd /ArloUSB-AnyRPi
+cd ArloUSB-AnyRPi
 ```
 ```sh
 sudo chmod +x *
