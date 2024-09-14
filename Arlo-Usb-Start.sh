@@ -4,22 +4,75 @@
 
 LOG_FILE="./arlo_usb_start.log"
 
-if [ ! -f "$LOG_FILE" ]; then
+if [ -f "$LOG_FILE" ]; then
+    > "$LOG_FILE"
+else
     touch "$LOG_FILE"
 fi
 
 echo "LogFile SUCCESS - 1/6" >> "$LOG_FILE"
 
-################################################################# MaxPower
+################################################################# ARGS
 
-if [ -z "$1" ]; then
-    echo "Usage: $0 <max_power>"
+# Bad MaxPower
+if [ -z "$1" ] || ! [[ "$1" =~ ^[0-9]+$ ]] || [ "$1" -lt 100 ] || [ "$1" -gt 900 ]; then
+    echo "Usage: $0 <max_power> <TelYes|TelNo> [api_token] [chat_id]"
+    echo "Invalid max_power value. It must be a number between 100 and 900."
+    echo "MAXPOWER ERROR - 2/6" >> "$LOG_FILE"
     exit 1
 fi
 
 MAX_POWER=$1
+TEL_OPTION=$2
 
-echo "MAX_POWER SUCCESS - 2/6" >> "$LOG_FILE"
+if [ "$TEL_OPTION" != "TelYes" ] && [ "$TEL_OPTION" != "TelNo" ]; then
+    echo "Usage: $0 <max_power> <TelYes|TelNo> [api_token] [chat_id]"
+    echo "Invalid option for TelYes|TelNo, run the script again"
+    echo "TELOPTION ERROR - 2/6" >> "$LOG_FILE"
+    exit 1
+fi
+
+if [ "$TEL_OPTION" == "TelYes" ]; then
+    if [ -z "$3" ] || [ -z "$4" ]; then
+        echo "Usage: $0 <max_power> TelYes <api_token> <chat_id>"
+        echo "Invalid option for TelYes, run the script again"
+        echo "TELYES ERROR - 2/6" >> "$LOG_FILE"
+        exit 1
+    fi
+
+    SERVICE_FILE=/etc/systemd/system/telegram-sync.service
+
+    API_TOKEN=$3
+    CHAT_ID=$4
+
+    cat <<EOF > $SERVICE_FILE
+[Unit]
+Description=Telegram Video Sync Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 $(pwd)/telegram-sync.py $API_TOKEN $CHAT_ID
+WorkingDirectory=$(pwd)
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=root
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+    systemctl daemon-reload
+    systemctl enable telegram-sync.service
+    systemctl start telegram-sync.service
+    
+    echo "MAX_POWER + TELYES ARGS SUCCESS - 2/6" >> "$LOG_FILE"
+
+else
+    rm -f $(pwd)/telegram-sync.py
+    echo "MAX_POWER + TELNO SUCCESS - 2/6" >> "$LOG_FILE"
+fi
 
 ################################################################# Dependencies
 
@@ -73,7 +126,7 @@ function add_drive () {
   local partition_offset
   partition_offset=$(first_partition_offset "$filename")
   loopdev=$(losetup -o "$partition_offset" -f --show "$filename")
-  mkfs.vfat "$loopdev" -F 32 -n "$label"
+  mkfs.vfat "$loopdev" -F 32 -n "$label" > /dev/null 2>&1
   losetup -d "$loopdev"
   local mountpoint=/mnt/"$name"
   if [ ! -e "$mountpoint" ]
@@ -90,13 +143,13 @@ echo "Storage IMG SUCCESS - 5/6" >> "$LOG_FILE"
 init_mass_storage="@reboot sudo sh $(pwd)/enable_mass_storage.sh $MAX_POWER"
 sync_clip_interval="*/1 * * * * sudo /bin/bash $(pwd)/sync_clips.sh"
 cleanup_clips_interval="0 0 * * * sudo /bin/bash $(pwd)/cleanup_clips.sh"
-( crontab -l | cat;  echo "$init_mass_storage" ) | crontab -
-( crontab -l | cat;  echo "$sync_clip_interval" ) | crontab -
-( crontab -l | cat;  echo "$cleanup_clips_interval" ) | crontab -
-crontab -l
+( crontab -l 2>/dev/null | cat;  echo "$init_mass_storage" ) | crontab -
+( crontab -l 2>/dev/null | cat;  echo "$sync_clip_interval" ) | crontab -
+( crontab -l 2>/dev/null | cat;  echo "$cleanup_clips_interval" ) | crontab -
 
 echo "Cronjob SUCCESS - 6/6" >> "$LOG_FILE"
 
 #################################################################
 
+echo "Script finished, rebooting. Check log files for further information."
 sudo reboot now
