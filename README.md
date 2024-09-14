@@ -9,7 +9,7 @@ All clips are stored in `/mnt/ArloExposed`. You need to access this folder to ex
 Two folders will be created in `/mnt` - `/arlo` and `/ArloExposed`. To avoid data corruption, DO NOT TOUCH the `/arlo` one.<br />
 Tested on [RPi-4B 8GB](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) and [RPi-Zero2W](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) both on [DietPi](https://dietpi.com/) Bookworm.
 
-### What you need
+## What you need
 
 For RPi Zero/Zero2W:
 - Connect the USB cable to the middle port from the RPi (Without the PWR label) to the USB of the station, Arlo base station itself is enough to power the Raspbery Pi.
