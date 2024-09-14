@@ -27,7 +27,7 @@ For others RPi's:
 To clone this repository, use the following command:
 
 ```sh
-git clone git@github.com:VincePuc99/ArloUSB-AnyRPi.git
+git clone https://github.com/VincePuc99/ArloUSB-AnyRPi.git
 ```
 
 ### Permissions
