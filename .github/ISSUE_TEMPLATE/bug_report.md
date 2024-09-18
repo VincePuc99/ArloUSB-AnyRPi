@@ -29,7 +29,8 @@ assignees: VincePuc99
 [Describe what you expect to happen.]
 
 ## Logs and Error Messages
-[Include any relevant logs or error messages.]
+[Include any relevant logs or error messages.] </br>
+[Please upload logfile created on script first run inside ArloUSB-AnyRPi main folder.]
 
 ## Additional Information
 [Any additional information that might be helpful.]
