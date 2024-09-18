@@ -11,12 +11,13 @@ Two folders will be created in `/mnt` - `/arlo` and `/ArloExposed`.<br />To avoi
 If using `Sync with Telegram Bot` double check your `[api_token]` & `[chat_id]`.<br />The program will not check them for you!<br />
 
 Tested on:
-- [RPi-4B 8GB](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) and [RPi-Zero2W](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) both on latest [DietPi](https://dietpi.com/).<br />
+- [RPi-4B 8GB](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) and [RPi-Zero2W](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) both on latest [DietPi](https://dietpi.com/).
+- Lexar 128GB SD Card
 - Arlo Pro 2 - Arlo Pro 3 Floodlight / Base station [VMB4500](https://www.arlo.com/en_fi/support/faq/000062284/What-is-the-difference-between-each-Arlo-SmartHub-and-base-station)
 
 ## What you need
 
-Required a minimum of 64GB SD card, tested on 128GB.
+Required a minimum of 64GB SD card.
 
 For RPi Zero/Zero2W:
 - Connect the USB cable to the middle port from the RPi (Without the PWR label) to the USB of the station, Arlo base station itself is enough to power the Raspbery Pi.
