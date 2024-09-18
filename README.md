@@ -88,7 +88,9 @@ If you chose `TelNo`, the `telegram-sync.py` file will be automatically deleted.
 
 - `sync_clips.sh` - Synchronizes clips from the USB storage to a shared directory. Ensures that the mount point is properly managed to avoid data corruption.
 
-- `telegram-sync.py`: (Optional) File service for synchronizing clips from the USB storage to a Telegram Bot.
+- `arlo_usb_start.log` - Will be created on first run. Check it for any issue.
+
+- `telegram-sync.py` - (Optional) File service for synchronizing clips from the USB storage to a Telegram Bot.
 
 ### Dependencies
 The scripts require the following packages:
