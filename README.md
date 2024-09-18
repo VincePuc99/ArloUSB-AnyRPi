@@ -7,6 +7,7 @@ All clips are stored in `/mnt/ArloExposed`. You need to access this folder to ex
 
 #### ⚠️ WARNING ⚠️
 Two folders will be created in `/mnt` - `/arlo` and `/ArloExposed`.<br />To avoid data corruption, DO NOT TOUCH the `/arlo` one.<br />
+
 If using `Sync with Telegram Bot` double check your `[api_token]` & `[chat_id]`.<br />The program will not check them for you!<br />
 
 Tested on:
