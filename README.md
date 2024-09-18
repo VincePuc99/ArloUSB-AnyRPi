@@ -52,7 +52,7 @@ This Python script monitors `/mnt/ArloExposed/arlo/000000` for new video files a
 
 #### Prerequisites for Telegram Sync
 
-- Python3
+- [Python3](https://www.python.org/downloads/)
 - [A Telegram bot with the API token](https://core.telegram.org/bots#how-do-i-create-a-bot) (created via BotFather)
 - [The chat ID of the Telegram chat](https://t.me/userinfobot) where the videos will be sent.
 
