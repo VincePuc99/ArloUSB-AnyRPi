@@ -11,7 +11,7 @@ If using `Sync with Telegram Bot` double check your `[api_token]` & `[chat_id]`.
 
 Tested on:
 - [RPi-4B 8GB](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) and [RPi-Zero2W](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) both on latest [DietPi](https://dietpi.com/).<br />
-- Arlo Pro 2 - Arlo Pro 3 Floodlight / Base station [VMB4500](https://community.arlo.com/t5/c-iyazy66697/Pro+Base+Station+Single-LED+VMB4500/pd-p/pro-base-station-single-led-vmb4500)
+- Arlo Pro 2 - Arlo Pro 3 Floodlight / Base station [VMB4500](https://www.arlo.com/en_fi/support/faq/000062284/What-is-the-difference-between-each-Arlo-SmartHub-and-base-station)
 
 ## What you need
 
