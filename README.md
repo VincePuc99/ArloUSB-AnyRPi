@@ -12,6 +12,8 @@ Tested on [RPi-4B 8GB](https://www.raspberrypi.com/products/raspberry-pi-4-model
 
 ## What you need
 
+Required a minimum of 64GB SD card, tested on 128GB.
+
 For RPi Zero/Zero2W:
 - Connect the USB cable to the middle port from the RPi (Without the PWR label) to the USB of the station, Arlo base station itself is enough to power the Raspbery Pi.
 
@@ -63,11 +65,11 @@ Where <max_power> is:
 
 Example for Raspberry Pi 4 with Telegram Sync Enabled:
 ```
-./Arlo-Usb-Start.sh 500 TelYes 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11 -zzzzzzzzzz
+sudo ./Arlo-Usb-Start.sh 500 TelYes 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11 -zzzzzzzzzz
 ```
 Example for Raspberry Pi 4 without Telegram Sync:
 ```
-./Arlo-Usb-Start.sh 500 TelNo
+sudo ./Arlo-Usb-Start.sh 500 TelNo
 ```
 
 After running `Arlo-Usb-Start.sh`, the Raspberry Pi will reboot. Upon reboot, check the connection to the base in Arlo Secure App.
@@ -88,6 +90,7 @@ If you chose `TelNo`, the `telegram-sync.py` file will be automatically deleted.
 ### Dependencies
 The scripts require the following packages:
 
+- `git`
 - `bash`
 - `findutils`
 - `util-linux`
@@ -98,7 +101,8 @@ The scripts require the following packages:
 - `kmod`
 - `python3` (Only For Telegram Sync)
 
-The Arlo-Usb-Start.sh script will automatically install these dependencies if they are not already installed.<br />However you will still need to install python3.
+The Arlo-Usb-Start.sh script will automatically install these dependencies if they are not already installed.<br />
+However you will still need to install python3 and git.
 
 ## License
 This project is licensed under the MIT License.
