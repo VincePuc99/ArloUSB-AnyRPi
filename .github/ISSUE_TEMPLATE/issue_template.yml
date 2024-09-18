@@ -1,0 +1,83 @@
+name: Bug Report
+about: Use this template to report a bug with the ArloUSB-AnyRPi project.
+
+title: "[BUG] Describe the bug"
+assignees: []
+labels: ["bug", "needs-triage"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Thank you for reporting a bug!
+        Please fill out the following information to help us address your issue.
+
+  - type: input
+    id: base_station_model
+    attributes:
+      label: Base Station Model
+      description: "Please enter the model of your base station."
+      placeholder: "e.g. Arlo Pro 2"
+    validations:
+      required: true
+
+  - type: input
+    id: firmware_version
+    attributes:
+      label: Firmware Version
+      description: "Enter the firmware version of your base station."
+      placeholder: "e.g. 1.2.3"
+    validations:
+      required: true
+
+  - type: input
+    id: rpi_model
+    attributes:
+      label: Raspberry Pi Model
+      description: "Enter the model of your Raspberry Pi."
+      placeholder: "e.g. Raspberry Pi 4"
+    validations:
+      required: true
+
+  - type: input
+    id: operating_system
+    attributes:
+      label: Operating System
+      description: "What OS are you using on your Raspberry Pi?"
+      placeholder: "e.g. Raspbian Bullseye"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem_description
+    attributes:
+      label: Problem Description
+      description: "Please describe the problem in detail."
+      value: |
+        [Provide a detailed description of the issue you are experiencing.]
+      render: markdown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: encounter_frequency
+    attributes:
+      label: How often do you encounter this issue?
+      options:
+        - Daily
+        - Weekly
+        - Occasionally
+        - Rarely
+      validations:
+        required: true
+
+  - type: checkboxes
+    id: error_logs
+    attributes:
+      label: Did you encounter any error messages?
+      description: "Please select any relevant error messages."
+      options:
+        - label: Connection error
+        - label: Timeout error
+        - label: Other (please specify in the problem description)
+
