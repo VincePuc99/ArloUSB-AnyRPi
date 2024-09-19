@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#needed for expose the mnt arlo to share without corrupting any data
+#################################################################### Check if sync_clips process already exist
 
 for pid in $(pidof -x sync_clips.sh); do
     if [ $pid != $$ ]; then
@@ -8,6 +8,8 @@ for pid in $(pidof -x sync_clips.sh); do
         exit 1
     fi
 done
+
+#################################################################### Offset calculation
 
 ARLO_IMG_FILE=/arlo.bin
 
@@ -26,15 +28,20 @@ function first_partition_offset () {
   echo $(( partition_start_sector * sector_size ))
 }
 
-umount /mnt/arlo || true
+#################################################################### Mount/Sync Section
+
+umount /mnt/arlo || true 
+
 partition_offset=$(first_partition_offset "$ARLO_IMG_FILE")
+
 loopdev=$(losetup -o "$partition_offset" -f --show "$ARLO_IMG_FILE")
+
 mount "$loopdev" /mnt/arlo
 
-# Create the directory if it doesn't exist
-mkdir -p /mnt/ArloExposed
+mkdir -p /mnt/ArloExposed   # Create the directory if it doesn't exist
 
 rsync -avu --delete "/mnt/arlo/" "/mnt/ArloExposed"
-umount /mnt/arlo || true
-losetup -d "$loopdev"
 
+umount /mnt/arlo || true
+
+losetup -d "$loopdev"
