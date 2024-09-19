@@ -13,11 +13,11 @@ If using `Sync with Telegram Bot` double check your `[api_token]` & `[chat_id]`.
 Tested on:
 - Lexar 128GB SD Card
 - [RPi-4B 8GB](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) and [RPi-Zero2W](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) both on latest [DietPi](https://dietpi.com/).
-- Arlo Pro 2 - Arlo Pro 3 Floodlight / Base station [VMB4500](https://www.arlo.com/en_fi/support/faq/000062284/What-is-the-difference-between-each-Arlo-SmartHub-and-base-station)
+- Arlo Pro 2 - Arlo Pro 3 Floodlight / Base station [VMB4500](https://www.arlo.com/en_fi/support/faq/000062284/What-is-the-difference-between-each-Arlo-SmartHub-and-base-station).
 
 ## What you need
 
-- A root user account.
+- A root user account - Currently testing for non-root users.
 
 - A minimum of 64GB SD card.
 
@@ -108,8 +108,8 @@ The scripts require the following packages:
 - `kmod`
 - `python3` (Only For Telegram Sync)
 
-The Arlo-Usb-Start.sh script will automatically install these dependencies if they are not already installed.<br />
-However you will still need to install python3 and git.
+The Arlo-Usb-Start.sh script will automatically check these dependencies if they are not already installed.<br />
+However you will still need to install theme.
 
 ## License
 This project is licensed under the MIT License.
