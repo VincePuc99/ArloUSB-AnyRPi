@@ -108,7 +108,7 @@ The scripts require the following packages:
 - `kmod`
 - `python3` (Only For Telegram Sync)
 
-The Arlo-Usb-Start.sh script will automatically check these dependencies if they are not already installed.
+The Arlo-Usb-Start.sh script will automatically check these dependencies if they are not already installed.<br />
 However, if the dependencies are not installed, the program will exit resulting in an error in LogFile.
 
 ## License
