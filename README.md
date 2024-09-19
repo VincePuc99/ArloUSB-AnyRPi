@@ -19,7 +19,7 @@ Tested on:
 
 - A root user account.
 
-- Required a minimum of 64GB SD card.
+- A minimum of 64GB SD card.
 
 - For RPi Zero/Zero2W:
   - Connect the USB cable to the middle port from the RPi (Without the PWR label) to the USB of the station, Arlo base station itself is enough to power the Raspbery Pi.
