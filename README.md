@@ -17,7 +17,7 @@ Tested on:
 
 ## What you need
 
-A root user account - Mandatory.
+A root user account.
 
 Required a minimum of 64GB SD card.
 
