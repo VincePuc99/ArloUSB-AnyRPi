@@ -47,7 +47,7 @@ cd ArloUSB-AnyRPi
 sudo chmod +x *
 ```
 
-#### Optional - Sync with Telegram Bot (python3)
+### Optional - Sync with Telegram Bot (python3)
 
 This Python script monitors `/mnt/ArloExposed/arlo/000000` for new video files and sends them to your Telegram bot. It uses the bot's API token and the chat ID to send the videos.
 
