@@ -17,6 +17,8 @@ Tested on:
 
 ## What you need
 
+A root user account - Mandatory.
+
 Required a minimum of 64GB SD card.
 
 For RPi Zero/Zero2W:
