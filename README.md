@@ -10,7 +10,7 @@ Two folders will be created in `/mnt` - `/arlo` and `/ArloExposed`.<br />To avoi
 
 If using `Sync with Telegram Bot` double check your `[api_token]` & `[chat_id]`.<br />The program will not check them for you!<br />
 
-Any other OS's are untested.
+Any other OS's / Distros are untested.
 
 Tested on:
 - Lexar 128GB SD Card
