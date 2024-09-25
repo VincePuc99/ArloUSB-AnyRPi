@@ -90,7 +90,8 @@ Example for Raspberry Pi 4 without Telegram Sync:
 sudo ./Arlo-Usb-Start.sh 500 TelNo
 ```
 
-After running `Arlo-Usb-Start.sh`, the Raspberry Pi will reboot. Upon reboot, check the connection to the base in Arlo Secure App.
+After running `Arlo-Usb-Start.sh`, the Raspberry Pi will reboot.<br />
+Upon reboot, check the connection to the base in Arlo Secure App.
 
 ## Documentation
 
