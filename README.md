@@ -70,7 +70,7 @@ If you choose `TelNo`, the `telegram-sync.py` file will be automatically deleted
 - [A Telegram bot with the API token](https://core.telegram.org/bots#how-do-i-create-a-bot) (created via BotFather)
 - [The chat ID of the Telegram chat](https://t.me/userinfobot) where the videos will be sent.
 
-### Usage
+## Usage
 
 ```sh
 sudo ./Arlo-Usb-Start.sh <max_power> <TelYes|TelNo> [api_token] [chat_id]
