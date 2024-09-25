@@ -60,6 +60,10 @@ sudo chmod +x *
 
 This Python script monitors `/mnt/ArloExposed/arlo/000000` for new video files and sends them to your Telegram bot. It uses the bot's API token and the chat ID to send the videos.
 
+For using it just add `TelYes` during the first setup.
+
+If you choose `TelNo`, the `telegram-sync.py` file will be automatically deleted.
+
 #### Prerequisites for Telegram Sync
 
 - [Python3](https://www.python.org/downloads/)
@@ -87,7 +91,6 @@ sudo ./Arlo-Usb-Start.sh 500 TelNo
 ```
 
 After running `Arlo-Usb-Start.sh`, the Raspberry Pi will reboot. Upon reboot, check the connection to the base in Arlo Secure App.
-If you chose `TelNo`, the `telegram-sync.py` file will be automatically deleted.
 
 ## Documentation
 
