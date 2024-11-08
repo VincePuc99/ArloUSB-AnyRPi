@@ -4,12 +4,12 @@ import mimetypes
 import argparse
 import time
 from datetime import datetime
-import json  # Aggiungi il modulo json
+import json
 
 # Constants
 BOUNDARY = '----WebKitFormBoundary7MA4YWxkTrZu0gW'
 LOG_FILE = '/var/log/telegram_video_sender.log'  # Log dei video inviati
-WATCHED_FOLDER = '/mnt/ArloExposed/arlo/000000'
+BASE_FOLDER = '/mnt/ArloExposed/arlo/'
 
 # Argument Parser per ottenere API_TOKEN e CHAT_ID
 parser = argparse.ArgumentParser()
@@ -155,15 +155,25 @@ def send_video(file_path):
     else:
         print(f'Failed to send video: {file_path}, error: {data.decode("utf-8")}')
 
+def get_subfolders(base_folder):
+    """Restituisce una lista di tutte le sottocartelle numeriche in BASE_FOLDER."""
+    return [f.path for f in os.scandir(base_folder) if f.is_dir() and f.name.isdigit()]
+
 def process_videos():
-    """Controlla i file nella cartella watched e invia quelli non ancora inviati."""
+    """Controlla tutte le sottocartelle in BASE_FOLDER e invia i video non ancora inviati."""
     processed_files = load_sent_videos()
+
     while True:
-        for filename in os.listdir(WATCHED_FOLDER):
-            if filename.endswith('.mp4') and filename not in processed_files:
-                file_path = os.path.join(WATCHED_FOLDER, filename)
-                send_video(file_path)
-                processed_files.add(filename)
+        # Scansiona tutte le sottocartelle di BASE_FOLDER
+        subfolders = get_subfolders(BASE_FOLDER)
+        
+        for folder in subfolders:
+            for filename in os.listdir(folder):
+                if filename.endswith('.mp4') and filename not in processed_files:
+                    file_path = os.path.join(folder, filename)
+                    send_video(file_path)
+                    processed_files.add(filename)  # Aggiungi al set dei video già inviati
+        
         time.sleep(30)  # Pausa di 30 secondi tra un controllo e l'altro
 
 if __name__ == '__main__':
