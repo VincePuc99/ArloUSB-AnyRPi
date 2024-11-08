@@ -20,15 +20,15 @@ Any other OS's / Distros are untested mainly due to `/boot/config.txt` position.
 
 Tested on:
 - Lexar 128GB SD Card
-- [RPi-4B 8GB](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) and [RPi-Zero2W](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/).
-- Latest [DietPi](https://dietpi.com/).
+- [RPi-4B 8GB](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) and [RPi-Zero2W](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/)
+- Latest [DietPi](https://dietpi.com/)
 - Arlo Pro 2 - Arlo Pro 3 Floodlight / Base station [VMB4500r2](https://www.arlo.com/en_fi/support/faq/000062284/What-is-the-difference-between-each-Arlo-SmartHub-and-base-station) Firm - 1.24.0.1_4295_8938370
 
 ## What you need
 
-- A root user account.
+- A root user account
 
-- A minimum of 64GB SD card.
+- A minimum of 64GB SD card
 
 - For RPi Zero/Zero2W:
   - Connect the USB cable to the middle port from the RPi (Without the PWR label) to the USB of the station, Arlo base station itself is enough to power the Raspbery Pi.
