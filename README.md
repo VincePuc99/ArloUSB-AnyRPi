@@ -106,6 +106,8 @@ Upon reboot, check the connection to the base in Arlo Secure App.
 
 - `arlo_usb_start.log` - Will be created on first run inside ArloUSB-AnyRP Main folder. Check it for any issue.
 
+- `mp4_hashes.log` - (Optional) Logging file containing hashes of the videos, useful for telegram-sync.py.
+
 - `telegram-sync.py` - (Optional) File service for synchronizing clips from the USB storage to a Telegram Bot.
 
 ### Dependencies
