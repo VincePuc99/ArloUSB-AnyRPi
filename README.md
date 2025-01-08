@@ -111,19 +111,11 @@ Upon reboot, check the connection to the base in Arlo Secure App.
 - `telegram-sync.py` - (Optional) File service for synchronizing clips from the USB storage to a Telegram Bot.
 
 ### Dependencies
-The scripts require the following packages:
+The scripts require the following packages:<br />
+`git` - `bash` - `findutils` - `util-linux` - `rsync` - `grep` - `coreutils` - `procps` - `kmod`
 
-- `git`
-- `bash`
-- `findutils`
-- `util-linux`
-- `rsync`
-- `grep`
-- `coreutils`
-- `procps`
-- `kmod`
-- `python3` (Only For Telegram Sync)
-- `python-telegram-bot` (Only For Telegram Sync)
+The optional Telegram Sync script require the following packages:<br />
+`python3` - `python-telegram-bot`
 
 The Arlo-Usb-Start.sh script will automatically check these dependencies if they are not already installed.<br />
 However, if the dependencies are not installed, the program will exit resulting in an error in LogFile.
