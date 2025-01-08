@@ -12,7 +12,7 @@ This project provides scripts to set up and manage an Arlo USB storage system on
 All clips are stored in `/mnt/ArloExposed`.<br />You need to access to this folder to expose them on your preferred service (GDrive - Samba - Telegram - etc).
 
 #### ⚠️ WARNING ⚠️
-Two folders will be created in `/mnt` - `/arlo` and `/ArloExposed`.<br />To avoid data corruption, DO NOT TOUCH the `/arlo` one. It's a mount point for `sync_clips.sh`.<br />
+Two folders will be created in `/mnt` - `/arlo` and `/ArloExposed`.<br />To avoid data corruption, DO NOT ALTER the `/arlo` one. It's a mount point for `sync_clips.sh`.<br />
 
 If using `Sync with Telegram Bot` double check your `[api_token]` & `[chat_id]`.<br />The program will not check them for you!<br />
 
