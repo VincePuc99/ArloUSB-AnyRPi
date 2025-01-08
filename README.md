@@ -56,6 +56,8 @@ sudo chmod +x *
 
 ### Optional - Sync with Telegram Bot (python3)
 
+For security reasons, I'm using it in polling mode. This may be inefficient, but it is strongly recommended to avoid opening any ports or exposing your public IP to the global internet. I will not develop a solution based on webhooks.
+
 This Python script `telegram-sync.py` monitors `/mnt/ArloExposed/arlo/000000` for new video files, calculate their hashes (for logging purpose), and sends them to your Telegram bot. It uses the bot's API token and the chat ID to send the videos.
 
 For using it just add `TelYes` during the first setup.
