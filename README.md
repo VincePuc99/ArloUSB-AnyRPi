@@ -5,11 +5,11 @@
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 ![Debian](https://img.shields.io/badge/Debian-D70A53?style=for-the-badge&logo=debian&logoColor=white)
 ![Raspberry Pi](https://img.shields.io/badge/-RaspberryPi-C51A4A?style=for-the-badge&logo=Raspberry-Pi)
+![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)
 
 This project provides scripts to set up and manage an Arlo USB storage system on a Raspberry Pi.<br />The scripts handle tasks such as enabling mass storage (30GB), synchronizing clips, cleaning up old clips and optionally create a service for synchronizing clips with a Telegram Bot.
 
-All clips are stored in `/mnt/ArloExposed`. You need to access this folder to expose them on your preferred service (GDrive - Samba - Telegram - etc).
-
+All clips are stored in `/mnt/ArloExposed`.<br />You need to access to this folder to expose them on your preferred service (GDrive - Samba - Telegram - etc).
 
 #### ⚠️ WARNING ⚠️
 Two folders will be created in `/mnt` - `/arlo` and `/ArloExposed`.<br />To avoid data corruption, DO NOT TOUCH the `/arlo` one. It's a mount point for `sync_clips.sh`.<br />
@@ -36,9 +36,7 @@ Tested on:
 - For others RPi's:
   - Connect the USB cable to any USB port of the RPi, you will need an external power source.
 
-
 ## Installation
-
 
 ### Cloning the Repository
 To clone this repository, use the following command:
@@ -58,7 +56,7 @@ sudo chmod +x *
 
 ### Optional - Sync with Telegram Bot (python3)
 
-This Python script `telegram-sync.py` monitors `/mnt/ArloExposed/arlo/000000` for new video files and sends them to your Telegram bot. It uses the bot's API token and the chat ID to send the videos.
+This Python script `telegram-sync.py` monitors `/mnt/ArloExposed/arlo/000000` for new video files, calculate their hashes (for logging purpose), and sends them to your Telegram bot. It uses the bot's API token and the chat ID to send the videos.
 
 For using it just add `TelYes` during the first setup.
 
@@ -67,6 +65,7 @@ If you choose `TelNo`, the `telegram-sync.py` file will be automatically deleted
 #### Prerequisites for Telegram Sync
 
 - [Python3](https://www.python.org/downloads/)
+- [python-telegram-bot](https://python-telegram-bot.org/)
 - [A Telegram bot with the API token](https://core.telegram.org/bots#how-do-i-create-a-bot) (created via BotFather)
 - [The chat ID of the Telegram chat](https://t.me/userinfobot) where the videos will be sent.
 
@@ -120,6 +119,7 @@ The scripts require the following packages:
 - `procps`
 - `kmod`
 - `python3` (Only For Telegram Sync)
+- `python-telegram-bot` (Only For Telegram Sync)
 
 The Arlo-Usb-Start.sh script will automatically check these dependencies if they are not already installed.<br />
 However, if the dependencies are not installed, the program will exit resulting in an error in LogFile.
