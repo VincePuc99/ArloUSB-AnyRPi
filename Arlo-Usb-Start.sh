@@ -53,14 +53,10 @@ After=network.target
 [Service]
 ExecStart=/usr/bin/python3 $(pwd)/telegram-sync.py $API_TOKEN $CHAT_ID
 WorkingDirectory=$(pwd)
-Restart=on-failure
-RestartSec=5
-StartLimitInterval=0
-StartLimitBurst=5
-StandardOutput=inherit
-StandardError=inherit
-User=root
-Environment=PYTHONUNBUFFERED=1
+#User=root
+#Restart=always
+#Environment=PATH=/usr/bin:/usr/local/bin
+#Environment=PYTHONUNBUFFERED=1
 
 [Install]
 WantedBy=multi-user.target
