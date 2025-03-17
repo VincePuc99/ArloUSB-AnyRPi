@@ -76,10 +76,8 @@ async def process_videos(queue):
         while not wait_for_file_to_stabilize(video_path):
             attempt += 1
             if attempt >= 10: 
-                print(f"File {video_path} non stabile dopo 5 tentativi, scartato.")
                 queue.task_done()
                 break
-            print(f"File {video_path} ancora in scrittura, riprovo tra 2s...")
             await asyncio.sleep(2)
 
         else:  # File stable? process it
