@@ -66,10 +66,10 @@ If you choose `TelNo`, the `telegram-sync.py` file will be automatically deleted
 
 #### Prerequisites for Telegram Sync
 
-- `Python3`[➡️](https://www.python.org/downloads/)
-- `python-telegram-bot`[➡️](https://python-telegram-bot.org/)
-- `A Telegram bot with the API token`[➡️](https://core.telegram.org/bots#how-do-i-create-a-bot) (created via BotFather)
-- `The chat ID of the Telegram chat`[➡️](https://t.me/userinfobot) where the videos will be sent.
+- [➡️](https://www.python.org/downloads/) `Python3`
+- [➡️](https://python-telegram-bot.org/) `python-telegram-bot`
+- [➡️](https://core.telegram.org/bots#how-do-i-create-a-bot) `A Telegram bot with the API token` (created via BotFather)
+- [➡️](https://t.me/userinfobot) `The chat ID of the Telegram chat` where the videos will be sent.
 
 ## Usage
 
