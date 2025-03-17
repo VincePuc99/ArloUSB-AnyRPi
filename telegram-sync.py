@@ -10,7 +10,7 @@ args = parser.parse_args()
 # Bot Init
 TOKEN = args.api_token
 CHATID = args.chat_id
-DIR = "/mnt/ArloExposed/arlo/000000"
+DIR = "/mnt/ArloExposed/arlo/"
 
 ##################################################### DM
 
@@ -19,9 +19,23 @@ async def ignore_private_messages(update: Update, context: ContextTypes.DEFAULT_
         return
 
 ##################################################### Arlo
-
 import os
 import hashlib
+import asyncio
+import watchdog
+
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
+
+class VideoHandler(FileSystemEventHandler):
+    def __init__(self, queue):
+        self.queue = queue
+
+    def on_modified(self, event):
+        if event.is_directory:
+            return
+        if event.src_path.endswith(".mp4"):
+            asyncio.run_coroutine_threadsafe(self.queue.put(event.src_path), loop)
 
 def calculate_file_hash(file_path):
     sha256_hash = hashlib.sha256()
@@ -30,34 +44,86 @@ def calculate_file_hash(file_path):
             sha256_hash.update(byte_block)
     return sha256_hash.hexdigest()
 
-async def load_arlo(context):
-    log_file_path = os.path.join(os.path.dirname(__file__), "mp4_hashes.log") #LogFile for hashes
-    
-    if os.path.exists(log_file_path):
-        with open(log_file_path, "r") as log_file:
-            existing_hashes = set(line.strip() for line in log_file)
-    else:
-        existing_hashes = set()
+def wait_for_file_to_stabilize(file_path, max_wait_time=10, check_interval=0.5):
+    last_size = -1
+    elapsed_time = 0
 
-    with open(log_file_path, "a") as log_file:
-        for filename in os.listdir(DIR):
-            if filename.endswith(".mp4"): 
-                file_path = os.path.join(DIR, filename)
-                file_hash = calculate_file_hash(file_path)
-                
-                if file_hash not in existing_hashes: #hash non presente
-                    await context.bot.send_video(chat_id=CHATID, video=file_path)
+    while elapsed_time < max_wait_time:
+        current_size = os.path.getsize(file_path)
+        if current_size == last_size:
+            return True  
+        last_size = current_size
+        time.sleep(check_interval)
+        elapsed_time += check_interval
 
+    return False
+
+async def process_videos(queue):
+    while True:
+        video_path = await queue.get()
+
+        ################### LOG
+        log_file_path = os.path.join(os.path.dirname(__file__), "mp4_hashes.log")
+            
+        if os.path.exists(log_file_path):
+            with open(log_file_path, "r") as log_file:
+                existing_hashes = set(line.strip() for line in log_file)
+        else:
+            existing_hashes = set()
+        ################### LOG
+
+        attempt = 0
+        while not wait_for_file_to_stabilize(video_path):
+            attempt += 1
+            if attempt >= 10: 
+                print(f"File {video_path} non stabile dopo 5 tentativi, scartato.")
+                queue.task_done()
+                break
+            print(f"File {video_path} ancora in scrittura, riprovo tra 2s...")
+            await asyncio.sleep(2)
+
+        else:  # File stable? process it
+            with open(log_file_path, "a") as log_file:
+                file_hash = calculate_file_hash(video_path)
+                if file_hash not in existing_hashes:  # hash not in set
+                    await GContext.bot.send_video(chat_id=CHATID, video=video_path)
                     log_file.write(f"{file_hash}\n")
-                    existing_hashes.add(file_hash)  
+                    existing_hashes.add(file_hash)
 
-#####################################################
+        queue.task_done()
 
-if __name__ == '__main__':
+############################### MAIN
+
+async def main():
+
     application = Application.builder().token(TOKEN).build()
+
     application.add_handler(MessageHandler(filters.ChatType.PRIVATE, ignore_private_messages))
 
-    job_queue = application.job_queue
-    job_queue.run_repeating(load_arlo, 20, first=1, name="Arlo")
+    await application.initialize()
+    await application.start()
+    await application.updater.start_polling()
 
-    application.run_polling()
+    global loop
+    loop = asyncio.get_event_loop()
+    queue = asyncio.Queue()
+
+    event_handler = VideoHandler(queue)
+    observer = Observer()
+    observer.schedule(event_handler, DIR, recursive=True)
+    observer.start()
+
+    try:
+        await process_videos(queue) 
+    except asyncio.CancelledError:
+        pass
+    finally:
+        observer.stop()
+        observer.join()
+
+    await application.updater.stop()
+    await application.stop()
+    await application.shutdown()
+
+if __name__ == '__main__':
+    asyncio.run(main())
