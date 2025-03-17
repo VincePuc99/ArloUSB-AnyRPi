@@ -40,7 +40,7 @@ mount "$loopdev" /mnt/arlo
 
 mkdir -p /mnt/ArloExposed   # Create the directory if it doesn't exist
 
-rsync -avu --delete "/mnt/arlo/" "/mnt/ArloExposed"
+rsync -avu --delete --inplace "/mnt/arlo/" "/mnt/ArloExposed"
 
 umount /mnt/arlo || true
 
