@@ -117,8 +117,7 @@ The scripts require the following packages:<br />
 The optional Telegram Sync script require the following packages:<br />
 `python3` - `python-telegram-bot`
 
-The Arlo-Usb-Start.sh script will automatically check these dependencies if they are not already installed.<br />
-However, if the dependencies are not installed, the program will exit resulting in an error in LogFile.
+The Arlo-Usb-Start.sh script will automatically check these dependencies.<br />If they are not already installed the program will exit resulting in an error in LogFile.
 
 ## License
 This project is licensed under the MIT License.
