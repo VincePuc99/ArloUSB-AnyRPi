@@ -1,4 +1,4 @@
-# Arlo USB-RPi Setup
+# Arlo Self Hosted Cloud-RPi Setup
 
 ![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
@@ -42,13 +42,13 @@ Tested on:
 To clone this repository, use the following command:
 
 ```sh
-git clone https://github.com/VincePuc99/ArloUSB-AnyRPi.git
+git clone https://github.com/VincePuc99/ArloSelfCloud-RPi.git
 ```
 
 ### Permissions
 
 ```sh
-cd ArloUSB-AnyRPi
+cd ArloSelfCloud-RPi
 ```
 ```sh
 sudo chmod +x *
