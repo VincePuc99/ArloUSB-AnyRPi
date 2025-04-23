@@ -42,13 +42,13 @@ Tested on:
 To clone this repository, use the following command:
 
 ```sh
-git clone https://github.com/VincePuc99/ArloSelfCloud-RPi.git
+git clone https://github.com/VincePuc99/ArloCloud-RPi.git
 ```
 
 ### Permissions
 
 ```sh
-cd ArloSelfCloud-RPi
+cd ArloCloud-RPi
 ```
 ```sh
 sudo chmod +x *
