@@ -15,7 +15,7 @@ Then you can share all your footage with your preferred method, i'm using telegr
 If you just want an Arlo’s cloud storage DIY alternative then ArloCloud-RPi is for you! <br />
 
 The scripts handle tasks such as enabling mass storage (30GB), synchronizing clips, cleaning up old clips and optionally create a service for synchronizing clips with a Telegram Bot. <br />
-All clips are stored in `/mnt/ArloExposed`.<br />You need to access to this folder to expose them on your preferred service (GDrive - Samba - Telegram - etc).
+All clips are stored in `/mnt/ArloExposed`.<br />You need to access to this folder to expose them on your preferred service (Google Drive - Samba - Telegram - etc).
 
 #### ⚠️ WARNING ⚠️
 Two folders will be created in `/mnt` - `/arlo` and `/ArloExposed`.<br />To avoid data corruption, DO NOT ALTER the `/arlo` one. It's a mount point for `sync_clips.sh`.<br />
