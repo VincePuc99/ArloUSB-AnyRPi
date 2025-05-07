@@ -9,7 +9,7 @@
 
 ### Instead of relying on Arlo's cloud service, you can use a Raspberry Pi to store your videos locally and access them virtually everywhere!<br />
 
-This setup lets you store every videos on your own Raspberry Pi. All you need is a Pi (even an older one works) and an sd card. <br />
+This setup lets you store every videos on your own Raspberry Pi. All you need is a Pi and an sd card. <br />
 Once set up, your Pi connects directly to the Arlo base station, so you can access and store all your footage locally. <br />
 Then you can share all your footage with your preferred method, i'm using telegram but its up to you, Google Drive, Samba, One Drive, virtually everything that can show videos! <br />
 If you just want an Arlo’s cloud storage DIY alternative then ArloCloud-RPi is for you! <br />
