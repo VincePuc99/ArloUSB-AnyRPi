@@ -7,8 +7,14 @@
 ![Debian](https://img.shields.io/badge/Debian-D70A53?style=for-the-badge&logo=debian&logoColor=white)
 ![Raspberry Pi](https://img.shields.io/badge/-RaspberryPi-C51A4A?style=for-the-badge&logo=Raspberry-Pi)
 
-This project provides scripts to set up and manage an Arlo USB storage system on a Raspberry Pi.<br />The scripts handle tasks such as enabling mass storage (30GB), synchronizing clips, cleaning up old clips and optionally create a service for synchronizing clips with a Telegram Bot.
+### Instead of relying on Arlo's cloud service, you can use a Raspberry Pi to store your videos locally and access them virtually everywhere!<br />
 
+This setup lets you store every videos on your own Raspberry Pi. All you need is a Pi (even an older one works) and an sd card. <br />
+Once set up, your Pi connects directly to the Arlo base station, so you can access and store all your footage locally. <br />
+Then you can share all your footage with your preferred method, i'm using telegram but its up to you, Google Drive, Samba, One Drive, virtually everything that can show videos! <br />
+If you just want an Arlo’s cloud storage DIY alternative then ArloCloud-RPi is for you! <br />
+
+The scripts handle tasks such as enabling mass storage (30GB), synchronizing clips, cleaning up old clips and optionally create a service for synchronizing clips with a Telegram Bot. <br />
 All clips are stored in `/mnt/ArloExposed`.<br />You need to access to this folder to expose them on your preferred service (GDrive - Samba - Telegram - etc).
 
 #### ⚠️ WARNING ⚠️
