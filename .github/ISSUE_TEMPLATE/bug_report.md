@@ -30,7 +30,7 @@ assignees: VincePuc99
 
 ## Logs and Error Messages
 [Include any relevant logs or error messages.] </br>
-[Please upload logfile created on script first run inside ArloUSB-AnyRPi main folder.]
+[Please upload logfile created on script first run inside ArloCloud-RPi main folder.]
 
 ## Additional Information
 [Any additional information that might be helpful.]
